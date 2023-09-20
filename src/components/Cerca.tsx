@@ -5,24 +5,22 @@ import { drink } from '../react-app-env';
 import { BsSearch } from "react-icons/bs";
 
 const Cerca = () => {
-    const [drinkData, setDrinkData] = useState<drink[] | null>(null);
-    const [cerca, setCerca] = useState<string>('');
-
+    const [cerca, setCerca] = useState<string>('negroni');
     const { data, isLoading } = useGetcocktailByNameQuery(cerca);
+    const [drinkData, setDrinkData] = useState<drink[] | null>(null);
+
 
     useEffect(() => {
-        if (data && data.drinks) {
-            setDrinkData(data.drinks);
-        } else {
-            setDrinkData(null);
+        if (!drinkData) {
+            if (data && data.drinks) {
+                setDrinkData(data.drinks);
+            }
         }
-    }, [data]);
+    }, [data, drinkData]);
 
     const handleSearch = () => {
-        if (data && data.drinks) {
+        if (!isLoading && data && data.drinks) {
             setDrinkData(data.drinks);
-        } else {
-            setDrinkData(null);
         }
     }
 
@@ -32,6 +30,7 @@ const Cerca = () => {
             <div className='flex gap-2 items-center'>
                 <input
                     className='rounded-md shadow-md shadow-black p-2'
+                    value={cerca}
                     onChange={(e) => setCerca(e.target.value)}
                     placeholder='Cerca'
                     type="text"

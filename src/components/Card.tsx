@@ -13,7 +13,7 @@ const Card: React.FC<drink> = ({ idDrink, strDrink, strAlcoholic, strDrinkThumb 
       >
         <h1 className=' font-bold'>{strDrink}</h1>
         <p> {strAlcoholic}</p>
-        <img className=' w-full cover rounded-md hover:scale-105 transition-all ' src={strDrinkThumb} alt={strDrink} />
+        <img className=' w-full cover rounded-md  transition-all ' src={strDrinkThumb} alt={strDrink} />
 
       </div>
     </Link>
