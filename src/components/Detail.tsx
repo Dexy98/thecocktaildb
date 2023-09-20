@@ -1,9 +1,9 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import { useGetDetailsByIdQuery } from '../redux/service/apiSlice';
 
-const Detail: React.FC<any> = () => {
-    let { id } = useParams();
+const Detail: React.FC = () => {
+    let { id } = useParams<Params>();
     const { data, isLoading } = useGetDetailsByIdQuery(id);
     console.log("🚀 ~ file: Detail.tsx:8 ~ data:", data)
 
