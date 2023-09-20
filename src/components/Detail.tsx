@@ -1,6 +1,10 @@
 import React from 'react'
 import { Params, useParams } from "react-router-dom";
 import { useGetDetailsByIdQuery } from '../redux/service/apiSlice';
+//lottie
+import loading from "../assets/loading.json";
+import { Player } from '@lottiefiles/react-lottie-player'
+
 
 const Detail: React.FC = () => {
     let { id } = useParams<Params>();
@@ -15,7 +19,14 @@ const Detail: React.FC = () => {
     return (
         <div className="flex flex-col items-center justify-center">
             {isLoading ? (
-                <div>Sta caricando...</div>
+                <div>
+                    <Player
+                        autoplay
+                        loop
+                        src={loading}
+                        style={{ height: '100vh', width: '100%' }}
+                    />
+                </div>
             ) : (
                 data?.drinks && data.drinks.map(item => (
                     <div key={item.idDrink} className="max-w-5xl w-full p-4 bg-white shadow-lg rounded-lg mb-4 ">

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useGetcocktailByNameQuery } from "../redux/service/apiSlice";
 import Card from './Card';
+//interface
 import { drink } from '../react-app-env';
+//icon
 import { BsSearch } from "react-icons/bs";
+//lottie
+import loading from "../assets/loading.json";
+import { Player } from '@lottiefiles/react-lottie-player'
 
 const Cerca = () => {
     const [cerca, setCerca] = useState<string>('negroni');
@@ -43,7 +48,14 @@ const Cerca = () => {
             <br /><br />
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3'>
                 {isLoading ? (
-                    <h1>Sta caricando...</h1>
+                    <div>
+                        <Player
+                            autoplay
+                            loop
+                            src={loading}
+                            style={{ height: '100vh', width: '100%' }}
+                        />
+                    </div>
                 ) : (
                     drinkData && drinkData.map(item => (
                         <Card
