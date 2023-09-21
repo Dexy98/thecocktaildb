@@ -17,10 +17,10 @@ const Home = () => {
         <article className=" w-full px-8 absolute z-10 flex items-center justify-between max-sm:flex-col">
           <div className='flex flex-col items-center text-white text-center'>
 
-            <h1 className="text-6xl leading-loose line font-bold mb-2">Cocktail</h1>
+            <h1 className=" text-[#FFDB01] text-6xl leading-loose line font-bold mb-2">Cocktail</h1>
             <p className="text-lg mb-4 leading-loose	">La più grande lista di cocktail al mondo</p>
             <a href="#cerca">
-              <button className="bg-white text-black px-6 py-4 rounded-full font-bold transition duration-300 hover:bg-yellow-500 hover:text-white flex gap-2 items-center">
+              <button className="bg-white text-black px-6 py-4 rounded-full font-bold transition duration-300 hover:bg-[#FFDB01] hover:text-white flex gap-2 items-center">
                 Scorri e cerca il tuo drink <BsArrowDown className='animate-bounce text-xl' />
               </button>
             </a>

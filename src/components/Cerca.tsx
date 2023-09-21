@@ -10,7 +10,7 @@ import loading from "../assets/loading.json";
 import { Player } from '@lottiefiles/react-lottie-player'
 
 const Cerca = () => {
-    const [cerca, setCerca] = useState<string>('negroni');
+    const [cerca, setCerca] = useState<string>(localStorage.getItem('lastSearch') || 'negroni');
     const { data, isLoading } = useGetcocktailByNameQuery(cerca);
     const [drinkData, setDrinkData] = useState<drink[] | null>(null);
 
@@ -26,6 +26,8 @@ const Cerca = () => {
     const handleSearch = () => {
         if (!isLoading && data && data.drinks) {
             setDrinkData(data.drinks);
+            localStorage.setItem('lastSearch', cerca);
+
         }
     }
 

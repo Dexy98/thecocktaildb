@@ -7,6 +7,8 @@ import Home from './components/Home';
 //route
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Detail from './components/Detail';
+import ErrorPage from './components/ErrorPage';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -16,7 +18,9 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/detail/:id' element={<Detail />} />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
+        <Footer />
       </div>
 
     </Router>
