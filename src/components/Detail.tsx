@@ -56,6 +56,8 @@ const Detail: React.FC = () => {
                                     <h2 className="text-xl font-bold mb-2">Istruzioni:</h2>
 
                                     <p className="mt-4">{item.strInstructionsIT ? item.strInstructionsIT : item.strInstructions}</p>
+                                    <span>-Scopri di più su  <a className=' text-[#FFDB01] hover:text-[#826E00]' target=' blank' href={`https://www.cookist.it/?s=${item.strDrink}`}>COOKIST</a></span>
+
                                 </div>
                             </div>
                         </div>
